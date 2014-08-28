@@ -1,0 +1,29 @@
+*.py[co]
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+# Secrets
+secrets.py
+*.sublime*
+*.pyc
+*.pyo
+*.so
+*.class
+*~
+build/
+/dist/
+MANIFEST
+secrets.cfg
+setup.cfg
+dempy.py
+requirements.txt
+readme.html
