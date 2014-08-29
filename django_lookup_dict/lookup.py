@@ -28,8 +28,8 @@ class LookupDict(object):
 
 	def __getitem__(self, key):
 		try:
-			item = Data_Store.objects.get(key = key)
-			return item.value
+			item = Data_Store.objects.get(dj_lookup_store_key = key)
+			return item.dj_lookup_store_value
 		except Data_Store.DoesNotExist:
 			raise KeyError("Key '{0}' does not exist".format(key))
 		except MultipleObjectsReturned:
@@ -37,15 +37,15 @@ class LookupDict(object):
 
 	def __setitem__(self, key, value):
 		try:
-			item = Data_Store.objects.get(key = key)
-			item.value = value
+			item = Data_Store.objects.get(dj_lookup_store_key = key)
+			item.dj_lookup_store_value = value
 		except:
-			item = Data_Store(key = key, value = value)
+			item = Data_Store(dj_lookup_store_key = key, dj_lookup_store_value = value)
 		item.save()
 
 	def __delitem__(self, key):
 		try:
-			item = Data_Store.objects.get(key = key)
+			item = Data_Store.objects.get(dj_lookup_store_key = key)
 			item.delete()
 		except Data_Store.DoesNotExist:
 			raise KeyError("Key '{0}' does not exist".format(key))
@@ -54,7 +54,7 @@ class LookupDict(object):
 
 	def	__contains__(self, key):
 		try:
-			item = Data_Store.objects.get(key = key)
+			item = Data_Store.objects.get(dj_lookup_store_key = key)
 			return True
 		except Data_Store.DoesNotExist:
 			return False
@@ -62,4 +62,4 @@ class LookupDict(object):
 			raise KeyError("Multiple entries for key: {0}".format(key))
 
 	def delete(*args):
-		Data_Store.objects.filter(key__in = args).delete()
+		Data_Store.objects.filter(dj_lookup_store_key__in = args).delete()
