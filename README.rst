@@ -1,4 +1,4 @@
-Django Lookup Dictionary
+django-lookup-dict
 ========================
 
 A django app that allows you to use a djanog model created by the app with a python dict-like operators.
