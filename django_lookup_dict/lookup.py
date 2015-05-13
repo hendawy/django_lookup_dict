@@ -52,7 +52,7 @@ class LookupDict(object):
 		except MultipleObjectsReturned:
 			raise KeyError("Multiple entries for key: {0}".format(key))
 
-	def	__contains__(self, key):
+	def __contains__(self, key):
 		try:
 			item = Data_Store.objects.get(dj_lookup_store_key = key)
 			return True
