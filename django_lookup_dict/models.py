@@ -23,12 +23,12 @@
 from django.db import models
 
 class Data_Store(models.Model):
-	#Just another Key Value Lookup table
-	dj_lookup_store_key = models.CharField(max_length=500)
-	dj_lookup_store_value = models.CharField(max_length=500)
+    #Just another Key Value Lookup table
+    dj_lookup_store_key = models.CharField(max_length=500)
+    dj_lookup_store_value = models.CharField(max_length=500)
 
-	def __str__(self):
-		return "{0}: {1}".format(self.key, self.value) 
+    def __str__(self):
+        return "{0}: {1}".format(self.key, self.value) 
 
-	def __repr__(self):
-		return self.__str__(s)
+    def __repr__(self):
+        return self.__str__(s)
